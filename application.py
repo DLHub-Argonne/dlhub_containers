@@ -38,10 +38,17 @@ def predict(clf, data):
 #print("=== training ===")
 #clf = train()
 
+@app.route("/train")
+def train_route():
+	train()
+
 @app.route("/", methods=["POST"])
 def slash_post():
 	body = request.get_json()
+	print("Body")
 	print(body)
+	print("Body")
+ 
 	print("=== Loading ===")
 	clf = load('./filename.pkl')
 
