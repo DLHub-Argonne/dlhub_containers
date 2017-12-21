@@ -18,6 +18,10 @@ model_file = "./model/iris.pkl"
 hr = HRModel(model_type="sklearn", 
              model_file=model_file)
 
+@app.route("/train")
+def train_route():
+	train()
+
 @app.route("/", methods=["POST"])
 def slash_post():
 	body = request.get_json()
