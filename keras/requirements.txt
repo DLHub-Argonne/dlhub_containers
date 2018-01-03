@@ -1,0 +1,6 @@
+numpy
+keras
+h5py
+tensorflow==1.3.0
+
+flask
