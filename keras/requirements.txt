@@ -1,6 +1,6 @@
+-e git://github.com/blaiszik/home_run.git@#egg=home_run
 numpy
 keras
 h5py
 tensorflow==1.3.0
-
 flask
