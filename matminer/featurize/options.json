@@ -1,0 +1,5 @@
+{
+  "pickle_path": "featurizer.pkl",
+  "pickled_columns": ["composition_object"],
+  "input_columns": ["composition_object"]
+}

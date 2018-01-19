@@ -1,0 +1,6 @@
+{
+  "input_name": "composition",
+  "output_name": "composition_object",
+  "function_name": "str_to_composition",
+  "unpickle_input": false
+}
