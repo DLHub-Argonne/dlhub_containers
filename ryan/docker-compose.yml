@@ -1,0 +1,10 @@
+version: "2"
+services:
+  matminer_featurize:
+    build: matminer_featurize
+
+  matminer_util:
+    build: matminer_util
+
+  oqmd_model:
+    build: oqmd_model

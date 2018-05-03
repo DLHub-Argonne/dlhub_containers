@@ -1,0 +1,6 @@
+scikit-learn
+numpy
+scipy
+git+git://github.com/WardLT/home_run.git@overhaul
+psycopg2
+flask
