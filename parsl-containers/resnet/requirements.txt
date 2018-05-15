@@ -1,0 +1,7 @@
+numpy
+tensorflow
+scikit-image
+joblib
+git+git://github.com/WardLT/home_run.git@overhaul
+flask
+psycopg2

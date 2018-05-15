@@ -8,3 +8,6 @@ services:
 
   oqmd_model:
     build: oqmd_model
+
+  resnet:
+    build: resnet
