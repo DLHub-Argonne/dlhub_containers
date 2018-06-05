@@ -1,0 +1,6 @@
+gzip
+pickle
+matplotlib
+python-ternary
+pymatgen
+git://github.com/WardLT/matminer.git@sciadv_features#egg=matminer
