@@ -6,5 +6,6 @@ def run(data):
     return x
 
 def test():
-	x = application.test()
+    import application
+	x = application.test_run()
 	return x

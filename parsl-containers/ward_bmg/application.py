@@ -1,6 +1,7 @@
 import gzip
 import pickle as pkl
 import matplotlib
+import pandas as pd
 matplotlib.use('TkAgg')
 from ternary.helpers import normalize, simplex_iterator
 from pymatgen import Composition
@@ -20,12 +21,18 @@ def run(data, version1=True):
 
     ############## Version 1 ################
     if version1:
-        scale=10
+        scale=16
         boundary=True
-        prediction = dict()
+        prediction = []
         for i, j, k in simplex_iterator(scale=scale, boundary=boundary):
-            prediction[(i, j)] = get_coords(data, normalize([i, j, k]), featurizer, model)
-        return prediction
+            prediction.append(
+                    {'x': i,
+                     'y': j,
+                     'pred': get_coords(data, normalize([i, j, k]), featurizer, model)
+                    })
+        df = pd.DataFrame(prediction)
+        df_dict = df.to_dict()
+        return df_dict
 
 
     ############## Version 2 ################
@@ -56,5 +63,5 @@ def get_coords(elems, x, featurizer, model):
     except:
         return 0
 
-if __name__ == '__main__':
-    test_run()
+#if __name__ == '__main__':
+#    test_run()

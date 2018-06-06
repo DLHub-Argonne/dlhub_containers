@@ -11,3 +11,6 @@ services:
 
   resnet:
     build: resnet
+
+  ward_bmg:
+    build: ward_bmg

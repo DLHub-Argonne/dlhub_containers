@@ -1,6 +1,5 @@
-gzip
-pickle
 matplotlib
 python-ternary
 pymatgen
+pandas
 git://github.com/WardLT/matminer.git@sciadv_features#egg=matminer
