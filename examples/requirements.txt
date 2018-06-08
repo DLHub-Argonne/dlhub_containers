@@ -8,3 +8,4 @@ mdf_toolbox
 tqdm
 requests
 globus_sdk
+matminer
