@@ -1,0 +1,7 @@
+
+matplotlib
+pandas
+pymatgen
+python-ternary
+mdf_forge
+mdf_toolbox
