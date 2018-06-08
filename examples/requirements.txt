@@ -5,3 +5,4 @@ pymatgen
 python-ternary
 mdf_forge
 mdf_toolbox
+tqdm
