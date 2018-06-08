@@ -14,3 +14,6 @@ services:
 
   ward_bmg:
     build: ward_bmg
+
+  cgcnn_formation_energy:
+    build: cgcnn_formation_energy
