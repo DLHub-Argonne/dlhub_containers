@@ -15,5 +15,8 @@ services:
   ward_bmg:
     build: ward_bmg
 
+  ward_formation_energy:
+    build: ward_formation_energy
+
   cgcnn_formation_energy:
     build: cgcnn_formation_energy

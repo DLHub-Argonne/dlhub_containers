@@ -7,5 +7,5 @@ def run(data):
 
 def test():
     import application
-	x = application.test_run()
-	return x
+    x = application.test_run()
+    return x

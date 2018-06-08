@@ -1,2 +1,4 @@
 numpy
 kipoi
+sklearn
+scipy
