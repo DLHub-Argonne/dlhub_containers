@@ -20,3 +20,6 @@ services:
 
   cgcnn_formation_energy:
     build: cgcnn_formation_energy
+
+  dsir:
+    build: dsir
