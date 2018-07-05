@@ -26,3 +26,6 @@ services:
 
   dlscore:
     build: dlscore
+
+  deep_smiles:
+    build: deep_smiles
