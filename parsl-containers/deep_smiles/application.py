@@ -1,5 +1,4 @@
 import numpy as np
-import pandas as pd
 from kipoi.model import KerasModel
 from keras.preprocessing import sequence
 
