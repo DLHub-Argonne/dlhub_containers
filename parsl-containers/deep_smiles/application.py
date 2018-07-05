@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 from kipoi.model import KerasModel
 from keras.preprocessing import sequence
 
@@ -10,14 +11,20 @@ def run(data):
     if not isinstance(data, str):
         raise("Expected input is a string to a file. Instead got type {}".format(type(data)))
 
-    if data.split(".")[-1] != "npy":
-        raise("Unexpected file extension. Only .npy is supported")
+    ext = data.split(".")[-1]
+    if ext == "smi": #Input is a path to a smiles file
+        pre_np = pd.read_csv(data)
+        data = np.array([val.values[0] for _, val in pre_np.iterrows()])
+    elif ext == "npy": # Input is a numpy array
+        data = np.load(data)
+    else:
+        raise("Unexpected file extension. Only .smi and .npy are supported")
+
     char_lib = np.load(char_lib_path)
-    data = np.load(data)
 
     #SMILES sequence to an array
     data_arr = []
-    for SMILESsequence in data: # Might syntactically change based on input data
+    for SMILESsequence in data:
         sequence_arr = []
         for letter in SMILESsequence:
             r = np.where(char_lib == letter)

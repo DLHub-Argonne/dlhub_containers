@@ -2,3 +2,4 @@ numpy
 kipoi
 keras
 tensorflow
+pandas
