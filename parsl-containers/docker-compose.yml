@@ -29,3 +29,6 @@ services:
 
   deep_smiles:
     build: deep_smiles
+
+  cell_cnn_nk:
+    build: cell_cnn_nk
