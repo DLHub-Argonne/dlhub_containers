@@ -19,7 +19,7 @@ class DLHub():
         serv = df_tmp[df_tmp.name==name]
         return serv.iloc[0]['uuid']
     
-    def infer(self, servable_id, data):
+    def run(self, servable_id, data):
         servable_path = '{service}/servables/{servable_id}/run'.format(service=self.service,
                                                                        servable_id=servable_id)
         payload = {"data":data}
@@ -28,4 +28,3 @@ class DLHub():
         if r.status_code is not 200:
             raise Exception(r)
         return pd.DataFrame(r.json())
-
