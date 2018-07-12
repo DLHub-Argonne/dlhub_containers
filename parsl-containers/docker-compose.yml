@@ -32,3 +32,6 @@ services:
 
   cell_cnn_nk:
     build: cell_cnn_nk
+
+  cell_cnn_ungated:
+    build: cell_cnn_ungated
