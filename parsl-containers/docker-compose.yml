@@ -35,3 +35,6 @@ services:
 
   cell_cnn_ungated:
     build: cell_cnn_ungated
+  
+  cell_cnn_pbmc:
+    build: cell_cnn_pbmc
