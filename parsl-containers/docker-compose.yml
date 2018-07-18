@@ -38,3 +38,9 @@ services:
   
   cell_cnn_pbmc:
     build: cell_cnn_pbmc
+
+  cifar10:
+    build: cifar10
+
+  mnist:
+    build: mnist
