@@ -5,7 +5,8 @@ def run(data):
 
 def test_run():
     print("Running test run")
-    return {}
+    output = run("")
+    return output
 
 if __name__ == '__main__':
     test_run()
