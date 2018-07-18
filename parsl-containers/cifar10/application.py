@@ -10,6 +10,7 @@ from keras.layers import Conv2D, MaxPooling2D, BatchNormalization
 normalize=True
 batch_size=50
 model_path = "./model/cifar10vgg.h5"
+class_labels = ["airplane", "automobile", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
 
 def run(data):
 
@@ -20,9 +21,13 @@ def run(data):
         data = normalize_production(data)
     res = model.predict(data,batch_size)
 
-    pred_classes = [np.argmax(x) for x in res]
+    output = []
+    for i in range(len(res)): # Prediction for each image
+        classes_sorted = np.argsort(res[i])
+        im_pred = [{class_labels[j]:res[i][j]} for j in classes_sorted[::-1]]
+        output.append(im_pred)
 
-    return pred_classes
+    return output
 
 def test_run():
     data_path = "./data/x_test.npy"
@@ -31,11 +36,19 @@ def test_run():
     labels = np.load(label_path)
 
     output = run(data)
-    assert len(output) == len(labels) # 1 prediction for each image
+    #assert len(output) == len(labels) # 1 prediction for each image
 
-    acc = np.mean([output[i] == labels[i] for i in range(len(output))])
-    print("Predicted on {} images with an accuracy of {} ".format(len(output), acc))
-    
+    for i in range(5):
+        print("Image {}".format(i))
+        print("Predicted class: {}, True class: {}".format(output[i][0], class_labels[labels[i][0]]))
+        print("Prediction: {}\n".format(output[i]))
+    acc = np.mean([list(output[i][0].keys())[0] == class_labels[labels[i][0]] for i in range(len(output))])
+    print("Predicted on {} images with an accuracy of {}".format(len(output), acc))
+    # print("Prediction for image {}: {},\n\nClass: {}, True:" \
+    # "{}".format(i, output[i], output[i][0], class_labels[labels[i][0]]))
+    #acc = np.mean([output[i] == labels[i] for i in range(len(output))])
+    #print("Predicted on {} images with an accuracy of {} ".format(len(output), acc))
+
     return output
 
 def normalize_production(x):
