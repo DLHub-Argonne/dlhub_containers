@@ -14,6 +14,8 @@ class_labels = ["airplane", "automobile", "bird", "cat", "deer", "dog", "frog", 
 
 def run(data):
 
+    if isinstance(data, list):
+        data = np.array(data)
     model = build_model_architecture()
     model.load_weights(model_path)
 
@@ -35,17 +37,17 @@ def test_run():
     data = np.load(data_path)
     labels = np.load(label_path)
 
+    data = data[:2].tolist()
+
     output = run(data)
     #assert len(output) == len(labels) # 1 prediction for each image
 
-    for i in range(5):
+    for i in range(2):
         print("Image {}".format(i))
         print("Predicted class: {}, True class: {}".format(output[i][0], class_labels[labels[i][0]]))
         print("Prediction: {}\n".format(output[i]))
     acc = np.mean([list(output[i][0].keys())[0] == class_labels[labels[i][0]] for i in range(len(output))])
     print("Predicted on {} images with an accuracy of {}".format(len(output), acc))
-    # print("Prediction for image {}: {},\n\nClass: {}, True:" \
-    # "{}".format(i, output[i], output[i][0], class_labels[labels[i][0]]))
     #acc = np.mean([output[i] == labels[i] for i in range(len(output))])
     #print("Predicted on {} images with an accuracy of {} ".format(len(output), acc))
 
