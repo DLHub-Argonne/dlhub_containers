@@ -26,7 +26,7 @@ def run(data):
     output = []
     for i in range(len(res)): # Prediction for each image
         classes_sorted = np.argsort(res[i])
-        im_pred = [{class_labels[j]:res[i][j]} for j in classes_sorted[::-1]]
+        im_pred = [{class_labels[j]:float(res[i][j])} for j in classes_sorted[::-1]]
         output.append(im_pred)
 
     return output
