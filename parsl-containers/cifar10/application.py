@@ -26,7 +26,8 @@ def run(data):
     output = []
     for i in range(len(res)): # Prediction for each image
         classes_sorted = np.argsort(res[i])
-        im_pred = [{class_labels[j]:float(res[i][j])} for j in classes_sorted[::-1]]
+        #im_pred = [{class_labels[j]:np.float64(res[i][j])} for j in classes_sorted[::-1]]
+        im_pred = {class_labels[j]:np.float64(res[i][j]) for j in classes_sorted[::-1]}
         output.append(im_pred)
 
     return output
@@ -44,12 +45,10 @@ def test_run():
 
     for i in range(2):
         print("Image {}".format(i))
-        print("Predicted class: {}, True class: {}".format(output[i][0], class_labels[labels[i][0]]))
+        print("Predicted class: {}, True class: {}".format(next(iter(output[i])), class_labels[labels[i][0]]))
         print("Prediction: {}\n".format(output[i]))
-    acc = np.mean([list(output[i][0].keys())[0] == class_labels[labels[i][0]] for i in range(len(output))])
+    acc = np.mean([next(iter(output[i])) == class_labels[labels[i][0]] for i in range(len(output))])
     print("Predicted on {} images with an accuracy of {}".format(len(output), acc))
-    #acc = np.mean([output[i] == labels[i] for i in range(len(output))])
-    #print("Predicted on {} images with an accuracy of {} ".format(len(output), acc))
 
     return output
 
