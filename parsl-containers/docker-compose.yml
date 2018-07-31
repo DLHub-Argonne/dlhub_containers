@@ -53,3 +53,12 @@ services:
   
   cgcnn_bulk_moduli:
     build: cgcnn_bulk_moduli
+
+  cgcnn_poisson_ratio:
+    build: cgcnn_poisson_ratio
+
+  cgcnn_semi_metal_classification:
+    build: cgcnn_semi_metal_classification
+
+  cgcnn_shear_moduli:
+    build: cgcnn_shear_moduli
