@@ -62,3 +62,6 @@ services:
 
   cgcnn_shear_moduli:
     build: cgcnn_shear_moduli
+
+  schnet:
+    build: schnet
