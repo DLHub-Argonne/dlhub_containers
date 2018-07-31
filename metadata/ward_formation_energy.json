@@ -1,0 +1,48 @@
+{
+"datacite": {
+    "title":"Including crystal structure attributes in machine learning models of formation energies via Voronoi tessellations",
+    "creators":[
+        "Ward, Logan",
+        "Liu, Ruoqian",
+        "Krishna, Amar",
+        "Hegde, Vinay I.",
+        "Agrawal, Ankit",
+        "Choudhary, Alok",
+        "Wolverton, Chris"
+    ],
+    "resourceType":"Dataset",
+    "publicationYear":2018,
+    "publisher":"DLHub",
+    "description":"Accurate estimation of formation energy materials through decision tree models to map DFT-calculated formation enthalpies to a set of attributes consisting of two distinct types: (i) composition-dependent attributes of elemental properties (as have been used in previous ML models of DFT formation energies), combined with (ii) attributes derived from the Voronoi tessellation of the compound's crystal structure.",
+    "associatedPubliations":[
+        "https://doi.org/10.1103/PhysRevB.96.024104"
+    ],
+    "license":"None"
+    },
+"dlhub": {
+    "version":"0.1",
+    "domain":"materials science",
+    "visible_to":"public"
+    },
+"servable": {
+    "name":"Ward Formation Energy",
+    "location":"s3://dlhub-anl/servables/ward_formation_energy",
+    "type":"model",
+    "model_type":"scikit-learn",
+    "ml_model":"Random Forest Regression",
+    "language":"python",
+    "run":{
+        "handler":"application.run",
+        "input":{
+            "shape":"(, 273)",
+            "description":"Numpy array with (numbrer of entries, number of features) where 273 is the number of features",
+            "type":"numpy array",
+            },
+        "output":{
+            "shape":"(,)",
+            "description":"Output is the predicted formation energy (eV/atom)",
+            "type":"regression",
+            }
+        }
+    }
+}

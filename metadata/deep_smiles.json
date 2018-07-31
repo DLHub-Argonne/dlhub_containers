@@ -1,0 +1,40 @@
+{
+"datacite": {
+    "title":"Including crystal structure attributes in machine learning models of formation energies via Voronoi tessellations",
+    "creators":["Zhu, Mengyuan"],
+    "resourceType":"Dataset",
+    "publicationYear":2018,
+    "publisher":"DLHub",
+    "description":"Use deep learning to read SMILES sequences and predict ADMET properties.",
+    "associatedPubliations":[
+        "None"
+    ],
+    "license":"https://opensource.org/licenses/MIT"
+    },
+"dlhub": {
+    "version":"0.1",
+    "domain":"chemistry",
+    "visible_to":"public"
+    },
+"servable": {
+    "name":"deep_smiles",
+    "location":"s3://dlhub-anl/servables/deep_smiles",
+    "type":"model",
+    "model_type":"keras",
+    "ml_model":"CNN",
+    "language":"python",
+    "run":{
+        "handler":"application.run",
+        "input": {
+            "shape": "(,)",
+            "description": "Input is list of SMILES or a path to a .npy or .smi file",
+            "type": "numpy array"
+            },
+        "output": {
+            "shape": "(,)",
+            "description": "Output is a numpy array of predicted ADMET properties (one for each SMILES string).",
+            "type": "probability"
+            }
+        }
+    }
+}

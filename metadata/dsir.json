@@ -1,0 +1,42 @@
+{
+"datacite": {
+    "title": "Deep-Learning Super-resolution Image Reconstruction (DSIR)",
+    "creators": [
+        "Duarte, Alex"
+    ],
+    "resourceType":"Dataset",
+    "publicationYear":2018,
+    "publisher":"DLHub",
+    "description":"This repository proposes a method that use convolution neural network (ConvNet) auto-encoder to reconstruct localization images from HD datasets.",
+    "associatedPubliations":[
+        "None"
+    ],
+    "license":"https://opensource.org/licenses/MIT"
+    },
+"dlhub": {
+    "version":"0.1",
+    "domain":"physics",
+    "visible_to":"public"
+    },
+"servable": {
+    "name":"DSIR",
+    "location":"s3://dlhub-anl/servables/dsir",
+    "type":"model",
+    "model_type":"pytorch",
+    "ml_model":"CNN",
+    "language":"python",
+    "run":{
+        "handler":"application.run",
+        "input": {
+            "shape":"None",
+            "description":"Directory of tif(f) files",
+            "type":"Directory"
+            },
+        "output": {
+            "shape":"(208, 208)",
+            "description":"Numpy Array representing the reconstructed image",
+            "type":"Image"
+            }
+        }
+    }
+}

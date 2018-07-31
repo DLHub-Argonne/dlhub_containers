@@ -1,0 +1,42 @@
+{
+   "datacite":{
+      "title":"No-op",
+      "creators":[
+        ""
+      ],
+      "resourceType":"Dataset",
+      "publicationYear":2018,
+      "publisher":"DLHub",
+      "description":"No-op to test dlhub functionality",
+      "associatedPublications":[
+         ""
+      ],
+      "license":""
+   },
+   "dlhub":{
+      "version":"0.1",
+      "domain":"",
+      "visible_to":"public"
+   },
+   "servable":{
+      "name":"noop",
+      "location":"s3://dlhub-anl/servables/noop",
+      "type":"model",
+      "model_type":"",
+      "ml_model":"",
+      "language":"python",
+      "run":{
+         "handler":"application.run",
+         "input":{
+            "shape":"",
+            "description":"Anything (jsonifiable) will work as the run acts as a noop",
+            "type":""
+         },
+         "output":{
+            "shape":"",
+            "description":"Empty dictionary",
+            "type":""
+         }
+      }
+   }
+}

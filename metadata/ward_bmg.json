@@ -1,0 +1,48 @@
+{
+"datacite": {
+    "title":"Model to Predict Glass Forming Capability of Material Compositions",
+    "creators":[
+        "Ren, Fang",
+        "Ward, Logan",
+        "Williams, Travis",
+        "Laws, Kevin J.",
+        "Wolverton, Christopher",
+        "Hattrick-Simpers, Jason",
+        "Mehta, Apurva"
+    ],
+    "resourceType":"Dataset",
+    "publicationYear":2018,
+    "publisher":"DLHub",
+    "description":"Predicts the likelihood of bulk metallic glass forming for a ternary of elements",
+    "associatedPubliations":[
+        "http://dx.doi.org/10.1126/sciadv.aaq1566"
+    ],
+    "license":"None"
+    },
+"dlhub": {
+    "version":"0.1",
+    "domain": "materials science",
+    "visible_to": "public"
+    },
+"servable": {
+    "name":"Ward_bmg",
+    "location":"s3://dlhub-anl/servables/ward_bmg",
+    "type":"model",
+    "model_type":"scikit-learn",
+    "ml_model":"Random Forest Regression",
+    "language":"python",
+    "run":{
+        "handler":"application.run",
+        "input":{
+            "shape":"(3,)",
+            "description":"Tuple of length 3, each required to be valid periodic table elements.",
+            "type":"composition",
+            },
+        "output":{
+            "shape":"(1,)",
+            "description":"Output is a probability map of metallic glass formation for the given composition set",
+            "type":"probability",
+            }
+        }
+    }
+}

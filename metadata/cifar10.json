@@ -1,0 +1,42 @@
+{
+   "datacite":{
+      "title":"Cifar10 Model",
+      "creators":[
+          "Geifman, Yonatan"
+      ],
+      "resourceType":"Dataset",
+      "publicationYear":2018,
+      "publisher":"DLHub",
+      "description":"Keras Model for Cifar10 with a validation accuracy of 93.56%",
+      "associatedPublications":[
+         ""
+      ],
+      "license":"https://www.gnu.org/licenses/gpl-3.0.en.html"
+   },
+   "dlhub":{
+      "version":"0.1",
+      "domain":"image recognition",
+      "visible_to":"public"
+   },
+   "servable":{
+      "name":"cifar10",
+      "location":"s3://dlhub-anl/servables/cifar10",
+      "type":"model",
+      "model_type":"CNN",
+      "ml_model":"keras",
+      "language":"python",
+      "run":{
+         "handler":"application.run",
+         "input":{
+            "shape":"(, 32, 32, 3)",
+            "description":"List of cifar images",
+            "type":"list"
+         },
+         "output":{
+            "shape":"(, 10)",
+            "description":"List of dictionaries with most likely class first for each image",
+            "type":"classification"
+         }
+      }
+   }
+}

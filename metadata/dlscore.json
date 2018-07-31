@@ -1,0 +1,45 @@
+{
+"datacite": {
+    "title":"DLSCORE: A deep learning based scoring function for predicting protein-ligand binding affinity",
+    "creators":[
+        "Hassan, Mahmudulla",
+        "Mogollon, Daniel Castaneda",
+        "Fuentes, Dr. Olac",
+        "Sirimulla, Dr. Suman"
+    ],
+    "resourceType":"Dataset",
+    "publicationYear":2018,
+    "publisher":"DLHub",
+    "description":"A deep learning approach to accurately predict protein-ligand binding affinities by using an ensemble of fully connected dense neural networks.",
+    "associatedPubliations":[
+        "https://doi.org/10.26434/chemrxiv.6159143.v1"
+    ],
+    "license":"https://opensource.org/licenses/MIT"
+    },
+"dlhub": {
+    "version":"0.1",
+    "domain":"chemistry",
+    "visible_to":"public"
+    },
+"servable": {
+    "name":"DLSCORE",
+    "location":"s3://dlhub-anl/servables/dlscore",
+    "type":"model",
+    "model_type":"keras",
+    "ml_model":"FCNN",
+    "language":"python",
+    "run":{
+        "handler":"application.run",
+        "input": {
+            "shape":"(1, 1)",
+            "description":"file[0] is the ligand pdbqt file, file[1] is the receptor pdbqt file",
+            "type":"tuple",
+            },
+        "output": {
+            "shape":"(1, )",
+            "description":"Dictionary full of pKd binding affinity predicted values.",
+            "type":"regression",
+            }
+        }
+    }
+}
