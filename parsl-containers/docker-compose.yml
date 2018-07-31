@@ -47,3 +47,6 @@ services:
   
   noop:
     build: noop
+
+  cgcnn_band_gap:
+    build: cgcnn_band_gap
