@@ -8,17 +8,18 @@ model_path = "./model/CYP1A2_conv1.hdf5"
 maxlen=226 # May change, taken from max length feature of training/testing data
 
 def run(data):
-    if not isinstance(data, str):
-        raise("Expected input is a string to a file. Instead got type {}".format(type(data)))
-
-    ext = data.split(".")[-1]
-    if ext == "smi": #Input is a path to a smiles file
-        pre_np = pd.read_csv(data)
-        data = np.array([val.values[0] for _, val in pre_np.iterrows()])
-    elif ext == "npy": # Input is a numpy array
-        data = np.load(data)
-    else:
-        raise("Unexpected file extension. Only .smi and .npy are supported")
+    if isinstance(data, str):
+        ext = data.split(".")[-1]
+        if ext == "smi": #Input is a path to a smiles file
+            pre_np = pd.read_csv(data)
+            data = np.array([val.values[0] for _, val in pre_np.iterrows()])
+        elif ext == "npy": # Input is a numpy array
+            data = np.load(data)
+        else:
+            raise ValueError("Unexpected file extension: {}. Only .smi and .npy are supported".format(ext))
+    elif not isinstance(data, list):
+        raise ValueError(("Expected input is a list of SMILES strings or a path to "
+        "a (.npy or .smi) file. Instead got type {}".format(type(data))))
 
     char_lib = np.load(char_lib_path)
 
@@ -34,12 +35,14 @@ def run(data):
 
     model = KerasModel(model_path)
     res = model.predict_on_batch(data_arr)
+    out = [val[0] for val in res.tolist()] # Allow for dlhub to transfer through json dumps
 
-    return res
+    return out
 
 
 def test_run():
-    data_path = "./data/test_smiles.npy"
+    data_path = "./data/small_data.npy"
+    data_path = np.load(data_path).tolist()
 
     output = run(data_path)
 
