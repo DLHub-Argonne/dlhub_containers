@@ -34,7 +34,11 @@ def run(data):
                 for ln in lig_array: temp_f.write(ln)
                 temp_f.close()
                 model_name = "MODEL " + str(model_id)
-                score=calculate_score(lig_array, receptor, VINA_EXECUTABLE, NUM_NETWORKS, temp_filename, rec, "\t", MODELS_PATH)
+                try:
+                    score=calculate_score(lig_array, receptor, VINA_EXECUTABLE, NUM_NETWORKS, temp_filename, rec, "\t", MODELS_PATH)
+                except Exception as e:
+                    os.remove(temp_filename)
+                    raise(e)
                 score['dlscore'] = sum(score['dlscore']) / len(score['dlscore'])
                 scores.append(score)
                 os.remove(temp_filename)
