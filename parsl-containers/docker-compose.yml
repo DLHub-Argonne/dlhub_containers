@@ -50,3 +50,6 @@ services:
 
   cgcnn_band_gap:
     build: cgcnn_band_gap
+  
+  cgcnn_bulk_moduli:
+    build: cgcnn_bulk_moduli
