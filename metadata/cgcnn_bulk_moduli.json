@@ -1,0 +1,38 @@
+{
+"datacite": {
+    "title":"Crystal Graph Convolutional Neural Networks for an Accurate and Interpretable Prediction of Material Properties",
+    "creators":["Xie, Tian", "Grossman, Jeffrey C."],
+    "resourceType":"Dataset",
+    "publicationYear":2018,
+    "publisher":"DLHub",
+    "description":"A crystal graph convolutional neural network to predict to predict bulk moduli",
+    "associatedPubliations":["https://link.aps.org/doi/10.1103/PhysRevLett.120.145301"],
+    "license":"https://opensource.org/licenses/MIT"
+    },
+"dlhub": {
+    "version":"0.1",
+    "domain":"materials science",
+    "visible_to":"public"
+    },
+"servable": {
+    "name":"cgcnn_bulk_moduli",
+    "location":"s3://dlhub-anl/servables/cgcnn_bulk_moduli",
+    "type":"model",
+    "model_type":"pytorch",
+    "ml_model":"CNN",
+    "language":"python",
+    "run":{
+        "handler":"application.run",
+        "input": {
+            "shape":"Path",
+            "description":"Dirctory Full of cif files",
+            "type":"Directory",
+            },
+        "output": {
+            "shape":"(,)",
+            "description":"Output is a List of predicted bulk moduli properties one for each file",
+            "type":"regression",
+            }
+        }
+    }
+}

@@ -28,7 +28,7 @@
     "run":{
         "handler":"application.run",
         "input": {
-            "shape":"None",
+            "shape":"Path",
             "description":"Directory of tif(f) files",
             "type":"Directory"
             },

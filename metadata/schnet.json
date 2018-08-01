@@ -1,0 +1,46 @@
+{
+"datacite": {
+    "title": "SchNet - a deep learning architecture for quantum chemistry",
+    "creators": [
+        "Schütt, Kristof T.",
+        "Arbabzadah, Farhad",
+        "Chmiela, Stefan",
+        "Müller, Klaus R.",
+        "Tkatchenko, Alexandre"
+    ],
+    "resourceType":"Dataset",
+    "publicationYear":2017,
+    "publisher":"DLHub",
+    "description":"SchNet is a deep learning architecture that allows for spatially and chemically resolved insights into quantum-mechanical observables of atomistic systems.",
+    "associatedPubliations":[
+        "http://dx.doi.org/10.1038/ncomms13890"
+    ],
+    "license":"https://opensource.org/licenses/MIT"
+    },
+"dlhub": {
+    "version":"0.1",
+    "domain": "physics",
+    "visible_to": "public"
+    },
+"servable": {
+    "name":"SchNet",
+    "location":"s3://dlhub-anl/servables/schnet",
+    "type":"model",
+    "model_type":"tensorflow",
+    "ml_model":"Deep Network",
+    "language":"python",
+    "run":{
+        "handler":"application.run",
+        "input": {
+            "shape": "Path",
+            "description": "Path to xyz file",
+            "type": "File",
+            },
+        "output": {
+            "shape": "(1,1)",
+            "description": "Tuple of (Energy, Force) predictions for the file",
+            "type": "regression",
+            }
+        }
+    }
+}

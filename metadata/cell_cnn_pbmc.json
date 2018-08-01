@@ -1,0 +1,42 @@
+{
+   "datacite":{
+      "title":"CellCnn (PBMC) - Representation Learning for detection of disease-associated cell subsets",
+      "creators":[
+          "Arvaniti, Eirini"
+      ],
+      "resourceType":"Dataset",
+      "publicationYear":2017,
+      "publisher":"DLHub",
+      "description":"Classifies GM-CSF stimulated and unstimulated samples using only the 14 intracellular signaling markers",
+      "associatedPublications":[
+         "http://www.imsb.ethz.ch/research/claassen/Software/cellcnn.html"
+      ],
+      "license":"https://www.gnu.org/licenses/gpl-3.0.en.html"
+   },
+   "dlhub":{
+      "version":"0.1",
+      "domain":"Biology",
+      "visible_to":"public"
+   },
+   "servable":{
+      "name":"cell_cnn_pbmc",
+      "location":"s3://dlhub-anl/servables/cell_cnn_pbmc",
+      "type":"model",
+      "model_type":"Keras",
+      "ml_model":"CNN",
+      "language":"python",
+      "run":{
+         "handler":"application.run",
+         "input":{
+            "shape":"(, , 14)",
+            "description":"Array of cells with measurments of 14 intracellular signaling markers",
+            "type":"numpy array"
+         },
+         "output":{
+            "shape":"(,2)",
+            "description":"Probability distribution over the 2 classes",
+            "type":"classification"
+         }
+      }
+   }
+}

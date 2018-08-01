@@ -1,0 +1,42 @@
+{
+   "datacite":{
+      "title":"MNIST Model",
+      "creators":[
+          "Keras-Team"
+      ],
+      "resourceType":"Dataset",
+      "publicationYear":2018,
+      "publisher":"DLHub",
+      "description":"CNN acheiving 99.25% on the MNIST test data",
+      "associatedPublications":[
+         ""
+      ],
+      "license":""
+   },
+   "dlhub":{
+      "version":"0.1",
+      "domain":"Image Recognition",
+      "visible_to":"public"
+   },
+   "servable":{
+      "name":"mnist",
+      "location":"s3://dlhub-anl/servables/mnist",
+      "type":"model",
+      "model_type":"CNN",
+      "ml_model":"keras",
+      "language":"python",
+      "run":{
+         "handler":"application.run",
+         "input":{
+            "shape":"(, 28, 28)",
+            "description":"List of MNIST images",
+            "type":"Classification"
+         },
+         "output":{
+            "shape":"(, 10)",
+            "description":"Array with predictions of each class for every image",
+            "type":"Classification"
+         }
+      }
+   }
+}

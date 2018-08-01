@@ -11,7 +11,7 @@
         "Wolverton, Chris"
     ],
     "resourceType":"Dataset",
-    "publicationYear":2018,
+    "publicationYear":2017,
     "publisher":"DLHub",
     "description":"Accurate estimation of formation energy materials through decision tree models to map DFT-calculated formation enthalpies to a set of attributes consisting of two distinct types: (i) composition-dependent attributes of elemental properties (as have been used in previous ML models of DFT formation energies), combined with (ii) attributes derived from the Voronoi tessellation of the compound's crystal structure.",
     "associatedPubliations":[

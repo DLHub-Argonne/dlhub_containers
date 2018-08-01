@@ -1,0 +1,42 @@
+{
+   "datacite":{
+      "title":"CellCnn (NK Ungated) - Representation Learning for detection of disease-associated cell subsets",
+      "creators":[
+          "Arvaniti, Eirini"
+      ],
+      "resourceType":"Dataset",
+      "publicationYear":2017,
+      "publisher":"DLHub",
+      "description":"Identifies CMV seropositivity-associated cell populations from the ungated data (after removal of dead cells and doublets).",
+      "associatedPublications":[
+         "http://www.imsb.ethz.ch/research/claassen/Software/cellcnn.html"
+      ],
+      "license":"https://www.gnu.org/licenses/gpl-3.0.en.html"
+   },
+   "dlhub":{
+      "version":"0.1",
+      "domain":"Biology",
+      "visible_to":"public"
+   },
+   "servable":{
+      "name":"cell_cnn_nk",
+      "location":"s3://dlhub-anl/servables/cell_cnn_ungated",
+      "type":"model",
+      "model_type":"Keras",
+      "ml_model":"CNN",
+      "language":"python",
+      "run":{
+         "handler":"application.run",
+         "input":{
+            "shape":"(, , 37)",
+            "description":"Mass cytometry measurements of 36 markers",
+            "type":"numpy array"
+         },
+         "output":{
+            "shape":"(,2)",
+            "description":"Probability distribution over the 2 classes",
+            "type":"prediction"
+         }
+      }
+   }
+}
