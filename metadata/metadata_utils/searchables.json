@@ -1,0 +1,22 @@
+{"searchables":{
+    "oqmd_model": {"filename": ""},
+    "formation_energy": {"filename": ""},
+    "DLSCORE": {"filename": "dlscore.json"},
+    "metallic_glass": {"filename": "ward_bmg.json"},
+    "yaeger_xrd_classifier": {"filename": ""},
+    "DSIR": {"filename": "dsir.json"},
+    "deep_smiles": {"filename": "deep_smiles.json"},
+    "cifar10": {"filename": "cifar10.json"},
+    "noop": {"filename": "noop.json"},
+    "schnet": {"filename": "schnet.json"},
+    "cgcnn_band_gap": {"filename": "cgcnn_band_gap.json"},
+    "cgcnn_bulk_moduli": {"filename": "cgcnn_bulk_moduli.json"},
+    "cgcnn_poisson_ratio": {"filename": "cgcnn_poisson_ratio.json"},
+    "cgcnn_semi_metal_classification": {"filename": "cgcnn_semi_metal_classification.json"},
+    "cgcnn_shear_moduli": {"filename": "cgcnn_shear_moduli.json"},
+    "cell_cnn_nk": {"filename": "cell_cnn_nk.json"},
+    "cell_cnn_pbmc": {"filename": "cell_cnn_pbmc.json"},
+    "cell_cnn_ungated": {"filename": "cell_cnn_ungated.json"},
+    "mnist": {"filename": "mnist.json"}
+    }
+}
