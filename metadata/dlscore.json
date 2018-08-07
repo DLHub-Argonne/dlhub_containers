@@ -33,12 +33,12 @@
         "input": {
             "shape":"(1, 1)",
             "description":"file[0] is the ligand pdbqt file, file[1] is the receptor pdbqt file",
-            "type":"tuple",
+            "type":"tuple"
             },
         "output": {
             "shape":"(1, )",
             "description":"Dictionary full of pKd binding affinity predicted values.",
-            "type":"regression",
+            "type":"regression"
             }
         }
     }

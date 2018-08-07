@@ -36,12 +36,12 @@
         "input":{
             "shape":"(3,)",
             "description":"Tuple of length 3, each required to be valid periodic table element.",
-            "type":"composition",
+            "type":"composition"
             },
         "output":{
             "shape":"(1,)",
             "description":"Output is a probability map of metallic glass formation for the given composition set",
-            "type":"probability",
+            "type":"probability"
             }
         }
     }

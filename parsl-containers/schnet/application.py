@@ -9,12 +9,15 @@ base_path = "./models/"
 energy_model_path = os.path.join(base_path, "energy_model")
 force_model_path = os.path.join(base_path, "force_model")
 batch_size = 1
+base_folder = "temp_data/"
 allow_local_file = False # Set True if running locally for simpler use
 
 
 def run(data):
-    temp_name = "temp_data/temp_file.xyz"
+    temp_name = os.path.join(base_folder, "temp_file.xyz")
     if not allow_local_file: # Not a local path. Data must be read in
+        if not os.path.isdir(base_folder):
+            os.mkdir(base_folder)
         if os.path.isfile(temp_name):
             os.remove(temp_name)
         with open(temp_name, 'w') as temp_f:
@@ -22,8 +25,10 @@ def run(data):
         data = temp_name
     tf.reset_default_graph() # Allow for multiple runs
     at = ase.io.read(data)
-    if os.path.isfile(temp_name): # Keep temporary directory clean
+    if os.path.isfile(temp_name): # Keep directory clean
         os.remove(temp_name)
+    if os.path.isdir(base_folder):
+        os.rmdir(base_folder)
     energy_model = load_model(energy_model_path)
     force_model = load_model(force_model_path)
 

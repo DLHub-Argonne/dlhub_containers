@@ -34,12 +34,12 @@
         "input": {
             "shape": "(,)",
             "description": "Raw data from xyz file",
-            "type": "Data",
+            "type": "Data"
             },
         "output": {
             "shape": "(1,1)",
             "description": "Dictionary of {Energy, Force} predictions for the file",
-            "type": "regression",
+            "type": "regression"
             }
         }
     }

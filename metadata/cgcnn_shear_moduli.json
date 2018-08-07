@@ -26,12 +26,12 @@
         "input": {
             "shape":"Path",
             "description":"Dirctory Full of cif files",
-            "type":"Directory",
+            "type":"Directory"
             },
         "output": {
             "shape":"(,)",
             "description":"Output is a List of shear moduli properties, one for each file",
-            "type":"regression",
+            "type":"regression"
             }
         }
     }
