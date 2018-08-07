@@ -32,13 +32,13 @@
     "run":{
         "handler":"application.run",
         "input": {
-            "shape": "Path",
-            "description": "Path to xyz file",
-            "type": "File",
+            "shape": "(,)",
+            "description": "Raw data from xyz file",
+            "type": "Data",
             },
         "output": {
             "shape": "(1,1)",
-            "description": "Tuple of (Energy, Force) predictions for the file",
+            "description": "Dictionary of {Energy, Force} predictions for the file",
             "type": "regression",
             }
         }

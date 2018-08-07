@@ -9,11 +9,21 @@ base_path = "./models/"
 energy_model_path = os.path.join(base_path, "energy_model")
 force_model_path = os.path.join(base_path, "force_model")
 batch_size = 1
+allow_local_file = False # Set True if running locally for simpler use
 
 
 def run(data):
+    temp_name = "temp_data/temp_file.xyz"
+    if not allow_local_file: # Not a local path. Data must be read in
+        if os.path.isfile(temp_name):
+            os.remove(temp_name)
+        with open(temp_name, 'w') as temp_f:
+            temp_f.write(data)
+        data = temp_name
     tf.reset_default_graph() # Allow for multiple runs
     at = ase.io.read(data)
+    if os.path.isfile(temp_name): # Keep temporary directory clean
+        os.remove(temp_name)
     energy_model = load_model(energy_model_path)
     force_model = load_model(force_model_path)
 
@@ -46,16 +56,20 @@ def run(data):
         orig_positions: positions
     }
     E, F = session.run([energy, forces], feed_dict=feed_dict)
-    res = (E.tolist(), F.tolist()) # Allow for json dumps for dlhub service
+    res = {"energy":E.tolist(), "force":F.tolist()} # Allow for json dumps for dlhub service
 
     return res
 
 
 def test_run():
     test_data_path = os.path.join("./data", "C20.xyz")
+    if not allow_local_file:
+        test_data = open(test_data_path, 'r').read()
+        output = run(test_data)
+    else:
+        output  = run(test_data_path)
 
-    output  = run(test_data_path)
-    (energy, force) = output
+    energy, force = output["energy"], output["force"]
 
     print("ENERGY: ", energy)
     print("FORCE: ", force)
