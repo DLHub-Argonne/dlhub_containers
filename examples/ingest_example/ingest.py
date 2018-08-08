@@ -4,6 +4,7 @@ import time
 import json
 import shlex
 import boto3
+import uuid
 import requests
 import subprocess
 import mdf_toolbox
@@ -20,7 +21,7 @@ bucket_name = 'dlhub-anl'
 service = "http://dlhub.org:5000/api/v1"
 
 
-def upload_directory(path, parent_dir, destDir="dlhub-anl/servables/"):
+def upload_directory(path, destDir="servables/"):
     """Function to upload an entire directory to specified s3 endpoint
     and make the files public
     Args:
@@ -29,9 +30,7 @@ def upload_directory(path, parent_dir, destDir="dlhub-anl/servables/"):
                        Defaults to 'dlhub-anl/servables'.
     """
     # NOTE: this will not work until a config file with keys is implemented
-    # s3 = boto3.resource('s3',
-    #                     aws_access_key_id=config["S3_KEY"],
-    #                     aws_secret_access_key=config["S3_SECRET"])
+    s3 = boto3.resource('s3')
 
     uploadFileNames = []
     for (sourceDir, dirname, filename) in os.walk(path):
@@ -40,42 +39,51 @@ def upload_directory(path, parent_dir, destDir="dlhub-anl/servables/"):
                 continue
             uploadFileNames.append(os.path.join(sourceDir, f))
 
+    dest_uuid = str(uuid.uuid4())
     print("Uploading to s3: \n")
     for sourcepath in uploadFileNames:
         ext_path = sourcepath.split(path)[-1].strip("/") # Take everything after parent dir
-        destpath = os.path.join(destDir, parent_dir, ext_path) # Join destination with parent dir and path to file
-        print("Uploading: {}".format(destpath))
+        destpath = os.path.join(destDir, dest_uuid, ext_path) # Join destination with a uuid and path to file
+        print("Uploading: {}".format(sourcepath))
         # NOTE: Commented out until access keys are figured out
-        # s3.Object(bucket_name, destpath).put(ACL="public-read", Body=open(sourcepath, 'rb'))
+        #s3.put_oject(ACL="public-read", Bucket=bucket_name, key=destpath, Body=open(sourcepath, 'rb'))
+        res = s3.Object(bucket_name, destpath).put(ACL="public-read", Body=open(sourcepath, 'rb'))
 
-def ingest_metadata(path=None):
+    return os.path.join("s3://", bucket_name, destDir, dest_uuid)
+
+def ingest_metadata(definition):
     """Ingests the container into the DLHub api as a servable.
     Args:
-        path (str): Path to the model metadata. Default=None which will have the user
+        definition (dict): a dictionary definition blob
         specify the input the path.
     """
-    last_ingested_id = last_id()
+    payload = definition
+    url = "http://dlhub.org/api/v1/servables"
 
-    if path is None:
-        path = input("Input path to json file here: ")
-
-    with open(path, 'r') as f:
-       json_input = json.load(f)
-
-    json_output = json.dumps(json_input)
-
-    cmd = "curl -H \"Content-Type:application/json\" -X POST -d '{}' http://dlhub.org:5000/api/v1/servables".format(json_output)
-
-    #print("Running Command {}".format(cmd))
     print("Running Ingestion to DLHub Servables")
+    response = requests.post(url, json=payload)
 
-    args = shlex.split(cmd)
-    process = subprocess.Popen(args, stdout=subprocess.PIPE)
-    output, error = process.communicate()
+    try:
+        return json.loads(response.text)
+    except:
+        pass
+    return response.text
 
-    complete = poll_status(last_ingested_id)
 
-    return complete
+def check_status(task_id):
+    """
+    Check the status of the task.
+
+    Args:
+        task_id (str): The id of the task.
+    """
+    url = "http://dlhub.org/api/v1/{}/status".format(task_id)
+    r = requests.get(url)
+    try:
+        return json.loads(r.text)
+    except:
+        pass
+    return r.text
 
 def last_id():
     """Get the last ingested id to know when the new id is uploaded
