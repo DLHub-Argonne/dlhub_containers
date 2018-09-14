@@ -50,3 +50,15 @@ def predict(data):
 
     return ml.run(data)
     # return json.dumps(ml.run(data))
+
+def test_run():
+    data = [
+    	{'composition': 'Al2O3'},
+	{'composition': 'NaCl'},
+    ]
+    with open('options.json') as fp:
+        options = json.load(fp)
+
+    # Instantiate a HRModel for sklearn type
+    ml = MatminerConversion(**options)
+    return ml.run(data)
