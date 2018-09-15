@@ -19,4 +19,4 @@ metadata = model.to_dict()
 validate_against_dlhub_schema(metadata, 'servable')
 print(json.dumps(metadata, indent=2))
 with open('model_metadata.json', 'w') as fp:
-    json.dump(metadata, fp)
+    json.dump(metadata, fp, indent=2)
