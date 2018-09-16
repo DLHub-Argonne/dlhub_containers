@@ -1,0 +1,114 @@
+{
+  "datacite": {
+    "creators": [],
+    "titles": [
+      {
+        "title": "SchNet C20 Force and Energy Predictor"
+      }
+    ],
+    "publisher": "DLHub",
+    "publicationYear": "2018",
+    "relatedIdentifiers": [
+      {
+        "relatedIdentifier": "1706.08566",
+        "relatedIdentifierType": "arXiv",
+        "relationType": "IsDescribedBy"
+      },
+      {
+        "relatedIdentifier": "1706.08566",
+        "relatedIdentifierType": "arXiv",
+        "relationType": "IsDescribedBy"
+      }
+    ],
+    "alternateIdentifiers": [
+      {
+        "alternateIdentifier": "https://github.com/atomistic-machine-learning/SchNet",
+        "alternateIdentifierType": "URL"
+      }
+    ],
+    "identifier": {
+      "identifier": "10.YET/UNASSIGNED",
+      "identifierType": "DOI"
+    },
+    "descriptions": [
+      {
+        "description": "A model based on the SchNet architecture that predicts the energy and forces of a C20 molecule. Useful for molecular dynmaics simulations.",
+        "descriptionType": "Abstract"
+      }
+    ],
+    "resourceType": {
+      "resourceTypeGeneral": "InteractiveResource"
+    }
+  },
+  "dlhub": {
+    "version": "0.1",
+    "domain": "",
+    "visible_to": [
+      "public"
+    ],
+    "id": null,
+    "name": "schnet_c20"
+  },
+  "servable": {
+    "methods": {
+      "run": {
+        "input": {
+          "type": "string",
+          "description": "Molecule in XYZ format"
+        },
+        "output": {
+          "type": "dict",
+          "description": "Forces and energies of the molecule",
+          "properties": {
+            "energy": {
+              "type": "number",
+              "description": "Energy of the whole system"
+            },
+            "forces": {
+              "type": "ndarray",
+              "description": "Forces acting on each atom in each direction",
+              "shape": [
+                null,
+                3
+              ]
+            }
+          }
+        },
+        "parameters": {},
+        "method_details": {
+          "method_name": "run",
+          "module": "app",
+          "autobatch": false
+        }
+      }
+    },
+    "files": {
+      "other": [
+        "app.py",
+        "SchNet\\models\\c20\\C20.xyz",
+        "SchNet\\models\\c20\\C20_relaxed.xyz",
+        "SchNet\\models\\c20\\energy_model\\args.npy",
+        "SchNet\\models\\c20\\energy_model\\validation\\best_model.data-00000-of-00001",
+        "SchNet\\models\\c20\\energy_model\\validation\\best_model.index",
+        "SchNet\\models\\c20\\energy_model\\validation\\best_model.meta",
+        "SchNet\\models\\c20\\energy_model\\validation\\checkpoint",
+        "SchNet\\models\\c20\\force_model\\args.npy",
+        "SchNet\\models\\c20\\force_model\\validation\\best_model.data-00000-of-00001",
+        "SchNet\\models\\c20\\force_model\\validation\\best_model.index",
+        "SchNet\\models\\c20\\force_model\\validation\\best_model.meta",
+        "SchNet\\models\\c20\\force_model\\validation\\checkpoint"
+      ]
+    },
+    "shim": "python.PythonStaticMethodServable",
+    "language": "python",
+    "dependencies": {
+      "python": {
+        "ase": "3.16.2",
+        "tensorflow": "1.10.1",
+        "numpy": "1.13.3",
+        "git+https://github.com/atomistic-machine-learning/SchNet.git": null
+      }
+    },
+    "type": "Python static method"
+  }
+}
