@@ -1,6 +1,36 @@
 {
   "datacite": {
-    "creators": [],
+    "creators": [
+      {
+        "givenName": "K. T.",
+        "familyName": "Sch\u00fctt",
+        "affiliations": "Technische Universit\u00e4t Berlin"
+      },
+      {
+        "givenName": "H. E.",
+        "familyName": "Sauceda",
+        "affiliations": "Fritz-Haber-Institut der Max-Planck-Gesellschaft"
+      },
+      {
+        "givenName": "P.-J.",
+        "familyName": "Kindermans",
+        "affiliations": "Technische Universit\u00e4t Berlin"
+      },
+      {
+        "givenName": "A.",
+        "familyName": "Tkatchenko",
+        "affiliations": "University of Luxembourg"
+      },
+      {
+        "givenName": "K.R.",
+        "familyName": "M\u00fcller",
+        "affiliations": [
+          "Technische Universit\u00e4t Berlin",
+          "Max-Planck-Institut f\u00fcr Informatik",
+          "Korea University"
+        ]
+      }
+    ],
     "titles": [
       {
         "title": "SchNet C20 Force and Energy Predictor"
@@ -42,7 +72,7 @@
   },
   "dlhub": {
     "version": "0.1",
-    "domain": "",
+    "domain": "physics",
     "visible_to": [
       "public"
     ],

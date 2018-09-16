@@ -8,10 +8,6 @@ import os
 model = PythonStaticMethodModel('app', 'run', function_kwargs={'relax': False})
 
 #  Describe the inputs and outputs
-model.set_title("SchNet C20 Force and Energy Predictor")
-model.set_name('schnet_c20')
-model.set_abstract("A model based on the SchNet architecture that predicts the energy and forces of a C20 molecule. Useful for molecular dynmaics simulations.")
-
 model.set_inputs('string', 'Molecule in XYZ format')
 model.set_outputs('dict', 'Forces and energies of the molecule',
                   properties={
@@ -20,6 +16,17 @@ model.set_outputs('dict', 'Forces and energies of the molecule',
                   })
 
 #  Add provenance information
+model.set_title("SchNet C20 Force and Energy Predictor")
+model.set_name('schnet_c20')
+model.set_domain('physics')
+model.set_abstract("A model based on the SchNet architecture that predicts the energy and forces of a C20 molecule. Useful for molecular dynmaics simulations.")
+model.set_authors(
+    ["Schütt, K. T.", "Sauceda, H. E.", "Kindermans, P.-J.", "Tkatchenko, A.", "Müller, K.R."],
+    ["Technische Universität Berlin", "Fritz-Haber-Institut der Max-Planck-Gesellschaft",
+     "Technische Universität Berlin", "University of Luxembourg",
+     ["Technische Universität Berlin", "Max-Planck-Institut für Informatik", "Korea University"]]
+)
+
 model.add_alternate_identifier("https://github.com/atomistic-machine-learning/SchNet", 'URL')
 model.add_related_identifier("1706.08566", "arXiv", "IsDescribedBy")
 model.add_related_identifier("10.1063/1.5019779", "DOI", "IsDescribedBy")
