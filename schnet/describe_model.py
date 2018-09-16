@@ -22,11 +22,11 @@ model.set_outputs('dict', 'Forces and energies of the molecule',
 #  Add provenance information
 model.add_alternate_identifier("https://github.com/atomistic-machine-learning/SchNet", 'URL')
 model.add_related_identifier("1706.08566", "arXiv", "IsDescribedBy")
-model.add_related_identifier("1706.08566", "arXiv", "IsDescribedBy")
+model.add_related_identifier("10.1063/1.5019779", "DOI", "IsDescribedBy")
 
 #  Add requirements
 model.add_requirement('ase', 'detect')
-model.add_requirement('tensorflow', '1.10.1')   # TODO: Check if this works
+model.add_requirement('tensorflow', '1.10.1')
 model.add_requirement('numpy', 'detect')
 model.add_requirement('git+https://github.com/atomistic-machine-learning/SchNet.git')
 
