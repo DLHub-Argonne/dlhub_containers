@@ -74,7 +74,9 @@
             }
           }
         },
-        "parameters": {},
+        "parameters": {
+          "relax": false
+        },
         "method_details": {
           "method_name": "run",
           "module": "app",

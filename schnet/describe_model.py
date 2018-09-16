@@ -5,7 +5,7 @@ import json
 import os
 
 # Create a model that invokes the "run" function from the
-model = PythonStaticMethodModel('app', 'run')
+model = PythonStaticMethodModel('app', 'run', function_kwargs={'relax': False})
 
 #  Describe the inputs and outputs
 model.set_title("SchNet C20 Force and Energy Predictor")
