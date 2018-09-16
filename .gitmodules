@@ -1,0 +1,3 @@
+[submodule "schnet/SchNet"]
+	path = schnet/SchNet
+	url = git@github.com:atomistic-machine-learning/SchNet.git
