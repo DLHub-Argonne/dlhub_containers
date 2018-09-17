@@ -1,4 +1,0 @@
-numpy
-scipy
-#git+git://github.com/DLHub-Argonne/home_run.git
-flask

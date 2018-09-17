@@ -1,3 +1,0 @@
-matminer
-flask
-git+git://github.com/WardLT/home_run.git@overhaul
