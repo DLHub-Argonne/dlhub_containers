@@ -1,0 +1,92 @@
+{
+  "datacite": {
+    "creators": [
+      {
+        "givenName": "Mengyuan",
+        "familyName": "Zhu",
+        "affiliations": "Georgia State University"
+      }
+    ],
+    "titles": [
+      {
+        "title": "Classification Model for AMDET Properties"
+      }
+    ],
+    "publisher": "DLHub",
+    "publicationYear": "2018",
+    "alternateIdentifiers": [
+      {
+        "alternateIdentifier": "https://github.com/MengyuanZhu/Deep-SMILES",
+        "alternateIdentifierType": "URL"
+      }
+    ],
+    "identifier": {
+      "identifier": "10.YET/UNASSIGNED",
+      "identifierType": "DOI"
+    },
+    "descriptions": [
+      {
+        "description": "A deep learning model that predicts AMDET properties given a SMILES string of a molecule.",
+        "descriptionType": "Abstract"
+      }
+    ],
+    "resourceType": {
+      "resourceTypeGeneral": "InteractiveResource"
+    }
+  },
+  "dlhub": {
+    "version": "0.1",
+    "domains": [],
+    "visible_to": [
+      "public"
+    ],
+    "id": null,
+    "name": "deep-smiles_model",
+    "files": {
+      "other": [],
+      "model": "Deep-SMILES\\CYP1A2_conv1_sequential_best.hdf5"
+    }
+  },
+  "servable": {
+    "methods": {
+      "run": {
+        "input": {
+          "type": "ndarray",
+          "description": "Encoding of the characters at each point in a string, padded by zeros",
+          "shape": [
+            null,
+            226
+          ]
+        },
+        "output": {
+          "type": "ndarray",
+          "description": "Binary classification of molecule",
+          "shape": [
+            null,
+            1
+          ]
+        },
+        "parameters": {},
+        "method_details": {
+          "method_name": "predict",
+          "classes": [
+            "Yes",
+            "No"
+          ]
+        }
+      }
+    },
+    "shim": "keras.KerasServable",
+    "language": "python",
+    "dependencies": {
+      "python": {
+        "keras": "2.2.0",
+        "h5py": "2.8.0",
+        "tensorflow": "1.8.0"
+      }
+    },
+    "type": "Keras Model",
+    "model_type": "Deep NN",
+    "model_summary": "_________________________________________________________________\nLayer (type)                 Output Shape              Param #   \n=================================================================\nembedding_23 (Embedding)     (None, 226, 50)           2150      \n_________________________________________________________________\ndropout_58 (Dropout)         (None, 226, 50)           0         \n_________________________________________________________________\nconv1d_24 (Conv1D)           (None, 220, 500)          175500    \n_________________________________________________________________\nleaky_re_lu_44 (LeakyReLU)   (None, 220, 500)          0         \n_________________________________________________________________\nglobal_max_pooling1d_17 (Glo (None, 500)               0         \n_________________________________________________________________\ndense_41 (Dense)             (None, 250)               125250    \n_________________________________________________________________\ndropout_59 (Dropout)         (None, 250)               0         \n_________________________________________________________________\nleaky_re_lu_45 (LeakyReLU)   (None, 250)               0         \n_________________________________________________________________\ndense_42 (Dense)             (None, 1)                 251       \n_________________________________________________________________\nactivation_21 (Activation)   (None, 1)                 0         \n=================================================================\nTotal params: 303,151\nTrainable params: 303,151\nNon-trainable params: 0\n_________________________________________________________________\n"
+  }
+}

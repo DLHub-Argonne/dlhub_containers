@@ -1,3 +1,6 @@
 [submodule "schnet/SchNet"]
 	path = schnet/SchNet
-	url = git@github.com:atomistic-machine-learning/SchNet.git
+	url = https://github.com/atomistic-machine-learning/SchNet.git
+[submodule "deep_smiles/Deep-SMILES"]
+	path = deep_smiles/Deep-SMILES
+	url = https://github.com/MengyuanZhu/Deep-SMILES.git

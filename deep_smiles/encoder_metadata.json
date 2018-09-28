@@ -1,0 +1,90 @@
+{
+  "datacite": {
+    "creators": [
+      {
+        "givenName": "Mengyuan",
+        "familyName": "Zhu",
+        "affiliations": "Georgia State University"
+      }
+    ],
+    "titles": [
+      {
+        "title": "String Encoder for Classification Model for AMDET Properties"
+      }
+    ],
+    "publisher": "DLHub",
+    "publicationYear": "2018",
+    "alternateIdentifiers": [
+      {
+        "alternateIdentifier": "https://github.com/MengyuanZhu/Deep-SMILES",
+        "alternateIdentifierType": "URL"
+      }
+    ],
+    "identifier": {
+      "identifier": "10.YET/UNASSIGNED",
+      "identifierType": "DOI"
+    },
+    "descriptions": [
+      {
+        "description": "String encoding step for Deep-SMILES model",
+        "descriptionType": "Abstract"
+      }
+    ],
+    "resourceType": {
+      "resourceTypeGeneral": "InteractiveResource"
+    }
+  },
+  "dlhub": {
+    "version": "0.1",
+    "domains": [],
+    "visible_to": [
+      "public"
+    ],
+    "id": null,
+    "name": "deep-smiles_enocoder",
+    "files": {
+      "other": [
+        "app.py",
+        "data\\character_library.json"
+      ]
+    }
+  },
+  "servable": {
+    "methods": {
+      "run": {
+        "input": {
+          "type": "list",
+          "description": "List of SMILES strings",
+          "item_type": {
+            "type": "string"
+          }
+        },
+        "output": {
+          "type": "list",
+          "description": "List of encoded strings.",
+          "item_type": {
+            "type": "list",
+            "description": "Encoded string. List of integers where each value is the index of the character in the library, or 0 if it is padded",
+            "item_type": {
+              "type": "integer"
+            }
+          }
+        },
+        "parameters": {
+          "length": 226
+        },
+        "method_details": {
+          "method_name": "encode_string",
+          "module": "app",
+          "autobatch": true
+        }
+      }
+    },
+    "shim": "python.PythonStaticMethodServable",
+    "language": "python",
+    "dependencies": {
+      "python": {}
+    },
+    "type": "Python static method"
+  }
+}
