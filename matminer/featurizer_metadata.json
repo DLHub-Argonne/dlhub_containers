@@ -1,0 +1,82 @@
+{
+  "datacite": {
+    "creators": [
+      {
+        "givenName": "Logan",
+        "familyName": "Ward",
+        "affiliations": "University of Chicago"
+      }
+    ],
+    "titles": [
+      {
+        "title": "Composition featurizer of Ward et al. 2016"
+      }
+    ],
+    "publisher": "DLHub",
+    "publicationYear": "2018",
+    "relatedIdentifiers": [
+      {
+        "relatedIdentifier": "10.1038/npjcompumats.2016.28",
+        "relatedIdentifierType": "DOI",
+        "relationType": "IsDescribedBy"
+      }
+    ],
+    "identifier": {
+      "identifier": "10.YET/UNASSIGNED",
+      "identifierType": "DOI"
+    },
+    "resourceType": {
+      "resourceTypeGeneral": "InteractiveResource"
+    }
+  },
+  "dlhub": {
+    "version": "0.1",
+    "domains": [],
+    "visible_to": [
+      "public"
+    ],
+    "id": null,
+    "name": "ward_npj_2016_featurizer",
+    "files": {
+      "other": [],
+      "pickle": "featurizer.pkl"
+    }
+  },
+  "servable": {
+    "methods": {
+      "run": {
+        "input": {
+          "type": "list",
+          "description": "List of pymtagen Composition objects",
+          "item_type": {
+            "type": "python object",
+            "python_type": "pymatgen.core.Composition"
+          }
+        },
+        "output": {
+          "type": "ndarray",
+          "description": "List of features",
+          "shape": [
+            null,
+            145
+          ]
+        },
+        "parameters": {
+          "ignore_errors": true
+        },
+        "method_details": {
+          "method_name": "featurize_many",
+          "class_name": "matminer.featurizers.base.MultipleFeaturizer"
+        }
+      }
+    },
+    "shim": "python.PythonClassMethodServable",
+    "language": "python",
+    "dependencies": {
+      "python": {
+        "matminer": "0.4.2"
+      }
+    },
+    "type": "Python class method"
+  }
+}

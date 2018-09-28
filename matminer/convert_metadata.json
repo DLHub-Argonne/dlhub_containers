@@ -1,0 +1,66 @@
+{
+  "datacite": {
+    "creators": [],
+    "titles": [
+      {
+        "title": "Convert List of Strings to Pymatgen Composition Objects"
+      }
+    ],
+    "publisher": "DLHub",
+    "publicationYear": "2018",
+    "identifier": {
+      "identifier": "10.YET/UNASSIGNED",
+      "identifierType": "DOI"
+    },
+    "resourceType": {
+      "resourceTypeGeneral": "InteractiveResource"
+    }
+  },
+  "dlhub": {
+    "version": "0.1",
+    "domains": [],
+    "visible_to": [
+      "public"
+    ],
+    "id": null,
+    "name": "string_to_pmg_composition",
+    "files": {
+      "other": []
+    }
+  },
+  "servable": {
+    "methods": {
+      "run": {
+        "input": {
+          "type": "list",
+          "description": "List of strings",
+          "item_type": {
+            "type": "string"
+          }
+        },
+        "output": {
+          "type": "list",
+          "description": "List of pymatgen composition objects",
+          "item_type": {
+            "type": "python object",
+            "python_type": "pymatgen.core.Composition"
+          }
+        },
+        "parameters": {},
+        "method_details": {
+          "method_name": "Composition",
+          "module": "pymatgen.core.composition",
+          "autobatch": true
+        }
+      }
+    },
+    "shim": "python.PythonStaticMethodServable",
+    "language": "python",
+    "dependencies": {
+      "python": {
+        "pymatgen": "2018.9.19"
+      }
+    },
+    "type": "Python static method"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "datacite": {
+    "creators": [],
+    "titles": [
+      {
+        "title": "Formation enthalpy predictor"
+      }
+    ],
+    "publisher": "DLHub",
+    "publicationYear": "2018",
+    "identifier": {
+      "identifier": "10.YET/UNASSIGNED",
+      "identifierType": "DOI"
+    },
+    "resourceType": {
+      "resourceTypeGeneral": "InteractiveResource"
+    }
+  },
+  "dlhub": {
+    "version": "0.1",
+    "domains": [
+      "materials science"
+    ],
+    "visible_to": [
+      "public"
+    ],
+    "id": null,
+    "name": "delta-e_icsd-subset_model",
+    "files": {
+      "other": [],
+      "model": "model.pkl"
+    }
+  },
+  "servable": {
+    "methods": {
+      "run": {
+        "input": {
+          "type": "ndarray",
+          "description": "List of records to evaluate with model. Each record is a list of 145 variables.",
+          "shape": [
+            null,
+            145
+          ],
+          "item_type": {
+            "type": "float"
+          }
+        },
+        "output": {
+          "type": "ndarray",
+          "description": "Predictions of the machine learning model.",
+          "shape": [
+            null
+          ],
+          "item_type": {
+            "type": "float"
+          }
+        },
+        "parameters": {},
+        "method_details": {
+          "method_name": "predict"
+        }
+      }
+    },
+    "shim": "sklearn.ScikitLearnServable",
+    "language": "python",
+    "dependencies": {
+      "python": {
+        "scikit-learn": "0.19.1"
+      }
+    },
+    "type": "Scikit-learn estimator",
+    "model_type": "RandomForestRegressor",
+    "model_summary": "Pipeline(memory=None,\n     steps=[('imputer', Imputer(axis=0, copy=True, missing_values='NaN', strategy='mean', verbose=0)), ('model', RandomForestRegressor(bootstrap=True, criterion='mse', max_depth=None,\n           max_features='auto', max_leaf_nodes=None,\n           min_impurity_decrease=0.0, min_impurity_split=None,\n           min_samples_leaf=1, min_samples_split=2,\n           min_weight_fraction_leaf=0.0, n_estimators=10, n_jobs=1,\n           oob_score=False, random_state=None, verbose=0, warm_start=False))])",
+    "options": {
+      "serialization_method": "pickle",
+      "is_classifier": false,
+      "classes": null
+    }
+  }
+}
