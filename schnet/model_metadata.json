@@ -72,12 +72,31 @@
   },
   "dlhub": {
     "version": "0.1",
-    "domain": "physics",
+    "domains": [
+      "physics"
+    ],
     "visible_to": [
       "public"
     ],
     "id": null,
-    "name": "schnet_c20"
+    "name": "schnet_c20",
+    "files": {
+      "other": [
+        "app.py",
+        "SchNet\\models\\c20\\C20.xyz",
+        "SchNet\\models\\c20\\C20_relaxed.xyz",
+        "SchNet\\models\\c20\\energy_model\\args.npy",
+        "SchNet\\models\\c20\\energy_model\\validation\\best_model.data-00000-of-00001",
+        "SchNet\\models\\c20\\energy_model\\validation\\best_model.index",
+        "SchNet\\models\\c20\\energy_model\\validation\\best_model.meta",
+        "SchNet\\models\\c20\\energy_model\\validation\\checkpoint",
+        "SchNet\\models\\c20\\force_model\\args.npy",
+        "SchNet\\models\\c20\\force_model\\validation\\best_model.data-00000-of-00001",
+        "SchNet\\models\\c20\\force_model\\validation\\best_model.index",
+        "SchNet\\models\\c20\\force_model\\validation\\best_model.meta",
+        "SchNet\\models\\c20\\force_model\\validation\\checkpoint"
+      ]
+    }
   },
   "servable": {
     "methods": {
@@ -114,30 +133,13 @@
         }
       }
     },
-    "files": {
-      "other": [
-        "app.py",
-        "SchNet\\models\\c20\\C20.xyz",
-        "SchNet\\models\\c20\\C20_relaxed.xyz",
-        "SchNet\\models\\c20\\energy_model\\args.npy",
-        "SchNet\\models\\c20\\energy_model\\validation\\best_model.data-00000-of-00001",
-        "SchNet\\models\\c20\\energy_model\\validation\\best_model.index",
-        "SchNet\\models\\c20\\energy_model\\validation\\best_model.meta",
-        "SchNet\\models\\c20\\energy_model\\validation\\checkpoint",
-        "SchNet\\models\\c20\\force_model\\args.npy",
-        "SchNet\\models\\c20\\force_model\\validation\\best_model.data-00000-of-00001",
-        "SchNet\\models\\c20\\force_model\\validation\\best_model.index",
-        "SchNet\\models\\c20\\force_model\\validation\\best_model.meta",
-        "SchNet\\models\\c20\\force_model\\validation\\checkpoint"
-      ]
-    },
     "shim": "python.PythonStaticMethodServable",
     "language": "python",
     "dependencies": {
       "python": {
-        "ase": "3.16.2",
+        "ase": "3.16.3b1",
         "tensorflow": "1.10.1",
-        "numpy": "1.13.3",
+        "numpy": "1.14.0",
         "git+https://github.com/atomistic-machine-learning/SchNet.git": null
       }
     },
