@@ -1,6 +1,0 @@
-#numpy
-#scipy
-matminer
-git+git://github.com/WardLT/home_run.git@overhaul
-flask
-psycopg2
