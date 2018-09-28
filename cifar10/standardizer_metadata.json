@@ -1,0 +1,102 @@
+{
+  "datacite": {
+    "creators": [
+      {
+        "givenName": "Yonatan",
+        "familyName": "Geifman",
+        "affiliations": "Technion"
+      }
+    ],
+    "titles": [
+      {
+        "title": "Keras Model for Cifar10 based on VGGNet"
+      }
+    ],
+    "publisher": "DLHub",
+    "publicationYear": "2018",
+    "relatedIdentifiers": [
+      {
+        "relatedIdentifier": "1409.1556",
+        "relatedIdentifierType": "arXiv",
+        "relationType": "IsDescribedBy"
+      }
+    ],
+    "alternateIdentifiers": [
+      {
+        "alternateIdentifier": "https://github.com/geifmany/cifar-vgg/blob/master/cifar10vgg.py",
+        "alternateIdentifierType": "URL"
+      }
+    ],
+    "identifier": {
+      "identifier": "10.YET/UNASSIGNED",
+      "identifierType": "DOI"
+    },
+    "descriptions": [
+      {
+        "description": "The image standardization routine associated with the cifar10_model deep learning model.",
+        "descriptionType": "Abstract"
+      }
+    ],
+    "resourceType": {
+      "resourceTypeGeneral": "InteractiveResource"
+    }
+  },
+  "dlhub": {
+    "version": "0.1",
+    "domains": [],
+    "visible_to": [
+      "public"
+    ],
+    "id": null,
+    "name": "cifar10_standardizer",
+    "files": {
+      "other": [],
+      "pickle": "models\\img_normalizer.pkl"
+    }
+  },
+  "servable": {
+    "methods": {
+      "run": {
+        "input": {
+          "type": "list",
+          "description": "List of images",
+          "item_type": {
+            "type": "ndarray",
+            "description": "Image",
+            "shape": [
+              32,
+              32,
+              3
+            ]
+          }
+        },
+        "output": {
+          "type": "list",
+          "description": "List of images. Standardized from the training set",
+          "item_type": {
+            "type": "ndarray",
+            "description": "Image",
+            "shape": [
+              32,
+              32,
+              3
+            ]
+          }
+        },
+        "parameters": {},
+        "method_details": {
+          "method_name": "standardize",
+          "class_name": "keras_preprocessing.image.ImageDataGenerator"
+        }
+      }
+    },
+    "shim": "python.PythonClassMethodServable",
+    "language": "python",
+    "dependencies": {
+      "python": {
+        "keras": "2.2.0"
+      }
+    },
+    "type": "Python class method"
+  }
+}
