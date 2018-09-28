@@ -18,7 +18,7 @@ model.set_outputs('dict', 'Forces and energies of the molecule',
 #  Add provenance information
 model.set_title("SchNet C20 Force and Energy Predictor")
 model.set_name('schnet_c20')
-model.set_domain('physics')
+model.set_domains(['physics'])
 model.set_abstract("A model based on the SchNet architecture that predicts the energy and forces of a C20 molecule. Useful for molecular dynmaics simulations.")
 model.set_authors(
     ["Schütt, K. T.", "Sauceda, H. E.", "Kindermans, P.-J.", "Tkatchenko, A.", "Müller, K.R."],

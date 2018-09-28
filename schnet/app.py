@@ -32,8 +32,8 @@ def run(molecule, relax=False):
     # Before loading the model in a second time, we have to reset TensorFlow
     tf.reset_default_graph()  # Allow for multiple runs
 
-    # Predictor has to be re-created with each invocations because it needs to
-    #  be given the charges, and those are not known until the model is invoked
+    # Predictor has to be re-created with each invocation because it needs to
+    #  be given the charges, and those are not known until the input structure is provided
     mdpred = SchNetMD(energy_path, force_path, nuclear_charges=at.numbers)
 
     # If desired, relax the structure
