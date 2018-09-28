@@ -1,0 +1,91 @@
+{
+  "datacite": {
+    "creators": [],
+    "titles": [
+      {
+        "title": "SVM to Predict Iris Species"
+      }
+    ],
+    "publisher": "DLHub",
+    "publicationYear": "2018",
+    "identifier": {
+      "identifier": "10.YET/UNASSIGNED",
+      "identifierType": "DOI"
+    },
+    "descriptions": [
+      {
+        "description": "SVM model trained using the classic Iris dataset",
+        "descriptionType": "Abstract"
+      }
+    ],
+    "resourceType": {
+      "resourceTypeGeneral": "InteractiveResource"
+    }
+  },
+  "dlhub": {
+    "version": "0.1",
+    "domains": [
+      "biology"
+    ],
+    "visible_to": [
+      "public"
+    ],
+    "id": null,
+    "name": "iris_svm",
+    "files": {
+      "other": [],
+      "model": "model.pkl"
+    }
+  },
+  "servable": {
+    "methods": {
+      "run": {
+        "input": {
+          "type": "ndarray",
+          "description": "List of records to evaluate with model. Each record is a list of 4 variables.",
+          "shape": [
+            null,
+            4
+          ],
+          "item_type": {
+            "type": "float"
+          }
+        },
+        "output": {
+          "type": "ndarray",
+          "description": "Probabilities for membership in each of 3 classes",
+          "shape": [
+            null,
+            3
+          ],
+          "item_type": {
+            "type": "float"
+          }
+        },
+        "parameters": {},
+        "method_details": {
+          "method_name": "_predict_proba"
+        }
+      }
+    },
+    "shim": "sklearn.ScikitLearnServable",
+    "language": "python",
+    "dependencies": {
+      "python": {
+        "scikit-learn": "0.19.1"
+      }
+    },
+    "type": "Scikit-learn estimator",
+    "model_type": "SVC",
+    "model_summary": "SVC(C=1, cache_size=200, class_weight=None, coef0=0.0,\n  decision_function_shape='ovr', degree=3, gamma='auto', kernel='linear',\n  max_iter=-1, probability=True, random_state=None, shrinking=True,\n  tol=0.001, verbose=False)",
+    "options": {
+      "serialization_method": "pickle",
+      "is_classifier": true,
+      "classes": [
+        "setosa",
+        "versicolor",
+        "virginica"
+      ]
+    }
+  }
+}
