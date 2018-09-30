@@ -1,0 +1,82 @@
+{
+  "datacite": {
+    "creators": [
+      {
+        "givenName": "Alex",
+        "familyName": "Duarte",
+        "affiliations": "The Institute of Photonic Sciences"
+      }
+    ],
+    "titles": [
+      {
+        "title": "Deep-Learning Super-resolution Image Reconstruction (DSIR)"
+      }
+    ],
+    "publisher": "DLHub",
+    "publicationYear": "2018",
+    "alternateIdentifiers": [
+      {
+        "alternateIdentifier": "https://github.com/leaxp/Deep-Learning-Super-Resolution-Image-Reconstruction-DSIR",
+        "alternateIdentifierType": "URL"
+      }
+    ],
+    "identifier": {
+      "identifier": "10.YET/UNASSIGNED",
+      "identifierType": "DOI"
+    },
+    "resourceType": {
+      "resourceTypeGeneral": "InteractiveResource"
+    }
+  },
+  "dlhub": {
+    "version": "0.1",
+    "domains": [],
+    "visible_to": [
+      "public"
+    ],
+    "id": null,
+    "name": "dsir",
+    "files": {
+      "other": [
+        "app.py",
+        "Deep-Learning-Super-Resolution-Image-Reconstruction-DSIR\\model\\autoencoder_model.pt"
+      ]
+    }
+  },
+  "servable": {
+    "methods": {
+      "run": {
+        "input": {
+          "type": "list",
+          "description": "Paths to all images in a dataset",
+          "item_type": {
+            "type": "string"
+          }
+        },
+        "output": {
+          "type": "ndarray",
+          "description": "Accumulated result of decoding all the images",
+          "shape": [
+            208,
+            208
+          ]
+        },
+        "parameters": {},
+        "method_details": {
+          "method_name": "run",
+          "module": "application",
+          "autobatch": false
+        }
+      }
+    },
+    "shim": "python.PythonStaticMethodServable",
+    "language": "python",
+    "dependencies": {
+      "python": {
+        "torch": "0.4.1",
+        "torchvision": "0.2.1"
+      }
+    },
+    "type": "Python static method"
+  }
+}

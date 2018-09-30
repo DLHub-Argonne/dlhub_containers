@@ -4,3 +4,6 @@
 [submodule "deep_smiles/Deep-SMILES"]
 	path = deep_smiles/Deep-SMILES
 	url = https://github.com/MengyuanZhu/Deep-SMILES.git
+[submodule "dsir/Deep-Learning-Super-Resolution-Image-Reconstruction-DSIR"]
+	path = dsir/Deep-Learning-Super-Resolution-Image-Reconstruction-DSIR
+	url = https://github.com/leaxp/Deep-Learning-Super-Resolution-Image-Reconstruction-DSIR.git
