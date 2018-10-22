@@ -5,7 +5,7 @@ import json
 import os
 
 # Create a model that invokes the "run" function from the
-model = PythonStaticMethodModel('app', 'run', function_kwargs={'relax': False})
+model = PythonStaticMethodModel.create_model('app', 'run', function_kwargs={'relax': False})
 
 #  Describe the inputs and outputs
 model.set_inputs('string', 'Molecule in XYZ format')
