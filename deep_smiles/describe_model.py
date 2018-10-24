@@ -6,7 +6,7 @@ import json
 import os
 
 # Describe the deep learning model
-model = KerasModel(os.path.join('Deep-SMILES', 'CYP1A2_conv1_sequential_best.hdf5'), ['Yes', 'No'])
+model = KerasModel.create_model(os.path.join('Deep-SMILES', 'CYP1A2_conv1_sequential_best.hdf5'), ['Yes', 'No'])
 
 #  Describe the inputs and outputs
 model.input['description'] = 'Encoding of the characters at each point in a string, padded by zeros'

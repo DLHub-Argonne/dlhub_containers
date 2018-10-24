@@ -4,7 +4,7 @@ import json
 import os
 
 # Create a model that invokes the "run" function from the
-model = PythonStaticMethodModel('application', 'run')
+model = PythonStaticMethodModel.create_model('application', 'run')
 
 #  Describe the inputs and outputs
 model.set_inputs('list', 'Paths to all images in a dataset', item_type='string')

@@ -3,7 +3,7 @@ from dlhub_toolbox.utils.schemas import validate_against_dlhub_schema
 import json
 
 # Create a model that performs the 'no-opt' operation
-model = PythonStaticMethodModel('app', 'noop')
+model = PythonStaticMethodModel.create_model('app', 'noop')
 
 model.set_title("No-op Function")
 model.set_name('no-op')

@@ -9,7 +9,7 @@ cifar_classes = ["airplane", "automobile", "bird", "cat", "deer",
                  "dog", "frog", "horse", "ship", "truck"]
 
 # Describe the deep learning model
-model = KerasModel(os.path.join('models', 'cifar10vgg.h5'), cifar_classes)
+model = KerasModel.create_model(os.path.join('models', 'cifar10vgg.h5'), cifar_classes)
 
 #  Describe the inputs and outputs
 model.set_inputs('list', 'List of images. Each image must be standardized by the mean'

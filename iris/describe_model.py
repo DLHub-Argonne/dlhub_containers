@@ -3,8 +3,8 @@ from dlhub_toolbox.models.servables.sklearn import ScikitLearnModel
 import json
 
 # Initiate the model
-model = ScikitLearnModel('model.pkl', n_input_columns=4,
-                         classes=['setosa', 'versicolor', 'virginica'])
+model = ScikitLearnModel.create_model('model.pkl', n_input_columns=4,
+                                      classes=['setosa', 'versicolor', 'virginica'])
 
 #    Describe the model
 model.set_title("SVM to Predict Iris Species")

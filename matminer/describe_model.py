@@ -20,7 +20,7 @@ convert.add_requirement('pymatgen', 'latest')
 # Generate a servable for the second step: converting features
 with open('featurizer.pkl', 'rb') as fp:
     featurizer = pkl.load(fp)
-feat_info = PythonClassMethodModel('featurizer.pkl', 'featurize_many', {'ignore_errors': True})
+feat_info = PythonClassMethodModel.create_model('featurizer.pkl', 'featurize_many', {'ignore_errors': True})
 
 #   Add reference information
 feat_info.set_title('Composition featurizer of Ward et al. 2016')
