@@ -21,22 +21,21 @@ def start_sess():
     graph = tf.Graph()
     sess = tf.Session(graph=graph)
     tf.saved_model.loader.load(sess,[tf.saved_model.tag_constants.SERVING], model_path)
-    model = sess
-    return model
+    return sess
+
+sess = start_sess()
 
 def run(inputs):
     """For the input, do the predictions and return them.
     Args:
         input (a pandas dataframe): The data on which to do the predictions. There will be
             one prediction per row in the dataframe"""
-    sess = start_sess()
     if isinstance(inputs, list):
         for i in range(len(inputs)):
             inputs[i] = codecs.decode(inputs[i].encode(), 'base64')
     else:
         inputs = [codecs.decode(inputs.encode(), 'base64')]
-    classes = sess.run('classes:0', feed_dict={"image/image:0": inputs})
-    scores = sess.run('scores:0', feed_dict={"image/image:0": inputs})
+    classes, scores = sess.run(('classes:0', 'scores:0'), feed_dict={"image/image:0": inputs})
     #print(classes, scores)
     preds = process_output(classes, scores) 
     return preds
@@ -59,8 +58,7 @@ def test_run():
     sess = start_sess()
     if not isinstance(inputs, list):
         inputs = [inputs]
-    classes = sess.run('classes:0', feed_dict={"image/image:0": inputs})
-    scores = sess.run('scores:0', feed_dict={"image/image:0": inputs})
+    classes, scores = sess.run(('classes:0', 'scores:0'), feed_dict={"image/image:0": inputs})
     #print(classes, scores)
     preds = process_output(classes, scores)
     return preds           
