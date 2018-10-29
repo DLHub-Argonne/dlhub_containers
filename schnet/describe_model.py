@@ -1,6 +1,6 @@
-from dlhub_toolbox.models.servables.python import PythonStaticMethodModel
-from dlhub_toolbox.utils.schemas import validate_against_dlhub_schema
-from dlhub_toolbox.utils.types import compose_argument_block
+from dlhub_sdk.models.servables.python import PythonStaticMethodModel
+from dlhub_sdk.utils.schemas import validate_against_dlhub_schema
+from dlhub_sdk.utils.types import compose_argument_block
 import json
 import os
 

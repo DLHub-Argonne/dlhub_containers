@@ -1,5 +1,5 @@
-from dlhub_toolbox.utils.schemas import validate_against_dlhub_schema
-from dlhub_toolbox.models.servables.sklearn import ScikitLearnModel
+from dlhub_sdk.utils.schemas import validate_against_dlhub_schema
+from dlhub_sdk.models.servables.sklearn import ScikitLearnModel
 import json
 
 # Initiate the model

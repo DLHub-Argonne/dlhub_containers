@@ -1,6 +1,6 @@
-from dlhub_toolbox.models.servables.python import PythonClassMethodModel, PythonStaticMethodModel
-from dlhub_toolbox.utils.schemas import validate_against_dlhub_schema
-from dlhub_toolbox.models.servables.sklearn import ScikitLearnModel
+from dlhub_sdk.models.servables.python import PythonClassMethodModel, PythonStaticMethodModel
+from dlhub_sdk.utils.schemas import validate_against_dlhub_schema
+from dlhub_sdk.models.servables.sklearn import ScikitLearnModel
 from pymatgen import Composition
 import pickle as pkl
 import json
