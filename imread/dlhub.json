@@ -1,0 +1,72 @@
+{
+  "datacite": {
+    "creators": [],
+    "titles": [
+      {
+        "title": "Image reading function"
+      }
+    ],
+    "publisher": "DLHub",
+    "publicationYear": "2019",
+    "identifier": {
+      "identifier": "10.YET/UNASSIGNED",
+      "identifierType": "DOI"
+    },
+    "descriptions": [
+      {
+        "description": "Reads an image file into an aray",
+        "descriptionType": "Abstract"
+      }
+    ],
+    "fundingReferences": [],
+    "relatedIdentifiers": [],
+    "alternateIdentifiers": [],
+    "rightsList": [],
+    "resourceType": {
+      "resourceTypeGeneral": "InteractiveResource"
+    }
+  },
+  "dlhub": {
+    "version": "0.8.0",
+    "domains": [],
+    "visible_to": [
+      "public"
+    ],
+    "name": "read_image",
+    "files": {},
+    "type": "servable",
+    "dependencies": {
+      "python": {
+        "PIL": null
+      }
+    }
+  },
+  "servable": {
+    "methods": {
+      "run": {
+        "input": {
+          "type": "file",
+          "description": "Image file",
+          "file_type": "image/*"
+        },
+        "output": {
+          "type": "ndarray",
+          "description": "Image contents",
+          "shape": [
+            null,
+            null,
+            null
+          ]
+        },
+        "parameters": {},
+        "method_details": {
+          "method_name": "open",
+          "module": "PIL.Image",
+          "autobatch": false
+        }
+      }
+    },
+    "shim": "python.PythonStaticMethodServable",
+    "type": "Python static method"
+  }
+}
